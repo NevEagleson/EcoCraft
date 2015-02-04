@@ -1,6 +1,6 @@
-package com.neveagleson.ecocraft.config;
+package com.neveagleson.ecocraft.core.config;
 
-import com.neveagleson.ecocraft.ModConstants;
+import com.neveagleson.ecocraft.core.ModConstants;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;

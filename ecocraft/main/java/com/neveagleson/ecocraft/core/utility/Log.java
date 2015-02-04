@@ -1,7 +1,7 @@
-package com.neveagleson.ecocraft.utility;
+package com.neveagleson.ecocraft.core.utility;
 
-import com.neveagleson.ecocraft.ModConstants;
-import com.neveagleson.ecocraft.config.Config;
+import com.neveagleson.ecocraft.core.ModConstants;
+import com.neveagleson.ecocraft.core.config.Config;
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 

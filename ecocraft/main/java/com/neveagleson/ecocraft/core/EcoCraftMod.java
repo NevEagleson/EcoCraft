@@ -1,8 +1,9 @@
-package com.neveagleson.ecocraft;
+package com.neveagleson.ecocraft.core;
 
-import com.neveagleson.ecocraft.config.Config;
-import com.neveagleson.ecocraft.proxy.CommonProxy;
-import com.neveagleson.ecocraft.utility.Log;
+import com.neveagleson.ecocraft.core.config.Config;
+import com.neveagleson.ecocraft.core.utility.Log;
+import com.neveagleson.ecocraft.core.proxy.CommonProxy;
+import com.neveagleson.ecocraft.core.registry.ECItems;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -28,7 +29,7 @@ public class EcoCraftMod
         Config.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new Config());
 
-        EcoCraftItems.register();
+        ECItems.register();
 
         proxy.preInit();
         Log.info("Pre Initialization Complete");

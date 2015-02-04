@@ -1,7 +1,8 @@
-package com.neveagleson.ecocraft.items;
+package com.neveagleson.ecocraft.core.items;
 
-import com.neveagleson.ecocraft.ModConstants;
-import com.neveagleson.ecocraft.creative.CreativeTab;
+import com.neveagleson.ecocraft.core.ModConstants;
+import com.neveagleson.ecocraft.core.registry.ECCreativeTabs;
+import com.neveagleson.ecocraft.core.utility.Names;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,7 +11,7 @@ import net.minecraft.item.Item;
 /**
  * Created by NevEagleson on 4/02/2015
  */
-public abstract class BaseItem extends Item
+public class BaseItem extends Item
 {
     public static int STACKSIZE_SINGLE = 1;
     public static int STACKSIZE_SMALL = 16;
@@ -22,7 +23,7 @@ public abstract class BaseItem extends Item
     {
         super();
         maxStackSize = STACKSIZE_SINGLE;
-        setCreativeTab(CreativeTab.instance);
+        setCreativeTab(ECCreativeTabs.ECO_CRAFT);
         setNoRepair();
         simpleName = name;
         this.setUnlocalizedName(simpleName);
@@ -36,7 +37,7 @@ public abstract class BaseItem extends Item
     @Override
     public String getUnlocalizedName()
     {
-        return String.format("item.%s%s", ModConstants.RESOURCE_PREFIX, getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
+        return String.format("item.%s%s", ModConstants.RESOURCE_PREFIX, Names.UnwrapUnlocalizedName(super.getUnlocalizedName()));
     }
 
     @Override
@@ -44,10 +45,5 @@ public abstract class BaseItem extends Item
     public void registerIcons(IIconRegister iconRegister)
     {
         itemIcon = iconRegister.registerIcon(getUnlocalizedName().substring(getUnlocalizedName().indexOf(".")+1));
-    }
-
-    protected String getUnwrappedUnlocalizedName(String name)
-    {
-        return name.substring(name.indexOf(".")+1);
     }
 }

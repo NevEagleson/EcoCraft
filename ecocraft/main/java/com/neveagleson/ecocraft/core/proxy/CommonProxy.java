@@ -1,4 +1,4 @@
-package com.neveagleson.ecocraft.proxy;
+package com.neveagleson.ecocraft.core.proxy;
 
 /**
  * Created by NevEagleson on 4/02/2015.
