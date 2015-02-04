@@ -1,0 +1,17 @@
+[
+  {
+    "modid":"EcoCraft",
+    "name":"EcoCraft",
+    "description":"Minecraft Mod based on the manipulation of Eco, as seen in Jak&Daxter",
+    "version":"0.1.0",
+    "mcversion":"1.7.10",
+    "url":"https://github.com/NevEagleson/EcoCraft",
+    "updateUrl":"",
+    "authorList": ["NevEagleson"],
+    "credits":"",
+    "logofile":"",
+    "screenshots": [],
+    "parent":"",
+    "dependencies":[]
+  }
+]

@@ -1,5 +1,15 @@
-.gradle
+# Ignore Build Files/Folders
+*.gradle
+*.bat
+*.iml
+*.ipr
 build/
+out/
+minecraft/
+gradle/
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
+/gradlew
+
