@@ -1,6 +1,8 @@
 package com.neveagleson.ecocraft.core;
 
 import com.neveagleson.ecocraft.core.config.Config;
+import com.neveagleson.ecocraft.core.registry.ECBlocks;
+import com.neveagleson.ecocraft.core.registry.ECFluids;
 import com.neveagleson.ecocraft.core.utility.Log;
 import com.neveagleson.ecocraft.core.proxy.CommonProxy;
 import com.neveagleson.ecocraft.core.registry.ECItems;
@@ -29,7 +31,9 @@ public class EcoCraftMod
         Config.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new Config());
 
-        ECItems.register();
+        ECFluids.preinit();
+        ECBlocks.preInit();
+        ECItems.preInit();
 
         proxy.preInit();
         Log.info("Pre Initialization Complete");
@@ -38,6 +42,10 @@ public class EcoCraftMod
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
+        ECFluids.init();
+        ECBlocks.init();
+        ECItems.init();
+
         proxy.init();
         Log.info("Initialization Complete");
     }
@@ -45,6 +53,10 @@ public class EcoCraftMod
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+        ECFluids.postInit();
+        ECBlocks.postInit();
+        ECItems.postInit();
+
         proxy.postInit();
         Log.info("Post Initialization Complete");
     }

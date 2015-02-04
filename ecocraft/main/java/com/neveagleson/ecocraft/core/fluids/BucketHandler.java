@@ -3,12 +3,14 @@ package com.neveagleson.ecocraft.core.fluids;
 import com.neveagleson.ecocraft.core.blocks.BaseFluidBlock;
 import com.neveagleson.ecocraft.core.items.BaseBucket;
 import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
 import java.util.HashMap;
@@ -23,12 +25,20 @@ public class BucketHandler
 
     private static final int FLUID_SOURCE = 0;
 
-    public void registerBucket(Block fluid, Item bucket)
+    public static BucketHandler instance = new BucketHandler();
+
+    private BucketHandler()
     {
-        buckets.put(fluid,bucket);
+        if(instance != null) throw new IllegalArgumentException();
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
+    public static void registerBucket(Block fluid, Item bucket)
+    {
+        instance.buckets.put(fluid,bucket);
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onBucketFill(FillBucketEvent event)
     {
         ItemStack result = fillCustomBucket(event.world, event.target);

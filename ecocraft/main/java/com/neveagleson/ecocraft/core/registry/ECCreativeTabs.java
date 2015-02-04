@@ -14,7 +14,7 @@ public class ECCreativeTabs
         @Override
         public Item getTabIconItem()
         {
-            return ECItems.ECO_BUCKET;
+            return ECItems.blueEcoBucket;
         }
     };
 }
