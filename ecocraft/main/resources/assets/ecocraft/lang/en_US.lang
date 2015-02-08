@@ -1,2 +1,22 @@
 itemgroup.ecocraft=Eco Craft
-item.ecocraft:ecobucket.name=Eco Bucket
+
+fluid.ecocraft.blueEco.name=Blue Eco
+fluid.ecocraft.greenEco.name=Green Eco
+fluid.ecocraft.yellowEco.name=Yellow Eco
+fluid.ecocraft.redEco.name=Red Eco
+fluid.ecocraft.darkEco.name=Dark Eco
+fluid.ecocraft.lightEco.name=Light Eco
+
+item.ecocraft.bucket.blueEcoBucket.name=Blue Eco Bucket
+item.ecocraft.bucket.greenEcoBucket.name=Green Eco Bucket
+item.ecocraft.bucket.yellowEcoBucket.name=Yellow Eco Bucket
+item.ecocraft.bucket.redEcoBucket.name=Red Eco Bucket
+item.ecocraft.bucket.darkEcoBucket.name=Dark Eco Bucket
+item.ecocraft.bucket.lightEcoBucket.name=Light Eco Bucket
+
+tile.ecocraft.fluid.blueEco.name=Blue Eco
+tile.ecocraft.fluid.greenEco.name=Green Eco
+tile.ecocraft.fluid.yellowEco.name=Yellow Eco
+tile.ecocraft.fluid.redEco.name=Red Eco
+tile.ecocraft.fluid.darkEco.name=Dark Eco
+tile.ecocraft.fluid.lightEco.name=Light Eco

@@ -20,7 +20,7 @@ public class BaseBlock extends Block
     {
         super(material);
         simpleName = name;
-        setBlockName(simpleName);
+        setBlockName(ModConstants.NAME_PREFIX + simpleName);
         setBlockTextureName(simpleName);
         setCreativeTab(ECCreativeTabs.ECO_CRAFT);
     }
@@ -36,15 +36,9 @@ public class BaseBlock extends Block
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("tile.%s%s", ModConstants.RESOURCE_PREFIX, Names.UnwrapUnlocalizedName(super.getUnlocalizedName()));
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        blockIcon = iconRegister.registerIcon(getUnlocalizedName().substring(getUnlocalizedName().indexOf(".")+1));
+        blockIcon = iconRegister.registerIcon(ModConstants.RESOURCE_PREFIX + simpleName);
     }
 }

@@ -29,8 +29,7 @@ public class BaseFluidBlock extends BlockFluidClassic
     {
         super(fluid, material);
         simpleName = fluid.getSimpleName();
-        setBlockName(simpleName);
-        setBlockTextureName(simpleName);
+        setBlockName(ModConstants.NAME_PREFIX + "fluid." + simpleName);
         setCreativeTab(ECCreativeTabs.ECO_CRAFT);
     }
 
@@ -45,23 +44,17 @@ public class BaseFluidBlock extends BlockFluidClassic
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("tile.%s%s", ModConstants.RESOURCE_PREFIX, Names.UnwrapUnlocalizedName(super.getUnlocalizedName()));
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister)
     {
-        stillIcon = iconRegister.registerIcon(getUnlocalizedName().substring(getUnlocalizedName().indexOf(".")+1)+".still");
-        flowingIcon = iconRegister.registerIcon(getUnlocalizedName().substring(getUnlocalizedName().indexOf(".")+1)+".flowing");
+        stillIcon = iconRegister.registerIcon(String.format("%sfluid/%s_still",ModConstants.RESOURCE_PREFIX,simpleName));
+        flowingIcon = iconRegister.registerIcon(String.format("%sfluid/%s_flowing",ModConstants.RESOURCE_PREFIX,simpleName));
     }
 
     @Override
     public IIcon getIcon(int side, int meta)
     {
-        return (side == 0 || side == 1) ? stillIcon : flowingIcon;
+        return side <= 1 ? stillIcon : flowingIcon;
     }
 
     @Override

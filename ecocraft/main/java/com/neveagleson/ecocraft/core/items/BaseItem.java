@@ -26,7 +26,7 @@ public class BaseItem extends Item
         setCreativeTab(ECCreativeTabs.ECO_CRAFT);
         setNoRepair();
         simpleName = name;
-        this.setUnlocalizedName(simpleName);
+        this.setUnlocalizedName(ModConstants.NAME_PREFIX + simpleName);
     }
 
     public String getSimpleName()
@@ -35,15 +35,9 @@ public class BaseItem extends Item
     }
 
     @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("item.%s%s", ModConstants.RESOURCE_PREFIX, Names.UnwrapUnlocalizedName(super.getUnlocalizedName()));
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {
-        itemIcon = iconRegister.registerIcon(getUnlocalizedName().substring(getUnlocalizedName().indexOf(".")+1));
+        itemIcon = iconRegister.registerIcon(ModConstants.RESOURCE_PREFIX + simpleName);
     }
 }

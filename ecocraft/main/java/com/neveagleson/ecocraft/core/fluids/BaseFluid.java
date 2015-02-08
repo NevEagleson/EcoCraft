@@ -13,22 +13,17 @@ public class BaseFluid extends Fluid
 
     public BaseFluid(String name)
     {
-        super(name);
-        simpleName = fluidName;
-        viscosity = 8000;
-        density = 2000;
+        super(ModConstants.NAME_PREFIX + name);
+        simpleName = name;
+        viscosity = 6000;
+        density = 3000;
         luminosity = 7;
+        temperature = 300;
     }
 
     public String getSimpleName()
     {
         return simpleName;
-    }
-
-    @Override
-    public String getUnlocalizedName()
-    {
-        return String.format("fluid.%s%s", ModConstants.RESOURCE_PREFIX, Names.UnwrapUnlocalizedName(super.getUnlocalizedName()));
     }
 
 }

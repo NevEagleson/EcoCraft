@@ -19,12 +19,27 @@ import net.minecraftforge.fluids.FluidRegistry;
 public class ECFluids
 {
     public static BaseFluid blueEco;
+    public static BaseFluid greenEco;
+    public static BaseFluid redEco;
+    public static BaseFluid yellowEco;
+    public static BaseFluid darkEco;
+    public static BaseFluid lightEco;
 
     public static void preinit()
     {
         //Register Fluids
         blueEco = new BaseFluid("blueEco");
         FluidRegistry.registerFluid(blueEco);
+        greenEco = new BaseFluid("greenEco");
+        FluidRegistry.registerFluid(greenEco);
+        redEco = new BaseFluid("redEco");
+        FluidRegistry.registerFluid(redEco);
+        yellowEco = new BaseFluid("yellowEco");
+        FluidRegistry.registerFluid(yellowEco);
+        darkEco = new BaseFluid("darkEco");
+        FluidRegistry.registerFluid(darkEco);
+        lightEco = new BaseFluid("lightEco");
+        FluidRegistry.registerFluid(lightEco);
     }
 
     public static void init()
