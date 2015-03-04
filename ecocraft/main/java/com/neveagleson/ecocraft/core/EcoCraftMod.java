@@ -3,6 +3,7 @@ package com.neveagleson.ecocraft.core;
 import com.neveagleson.ecocraft.core.config.Config;
 import com.neveagleson.ecocraft.core.registry.ECBlocks;
 import com.neveagleson.ecocraft.core.registry.ECFluids;
+import com.neveagleson.ecocraft.core.registry.ECPotions;
 import com.neveagleson.ecocraft.core.utility.Log;
 import com.neveagleson.ecocraft.core.proxy.CommonProxy;
 import com.neveagleson.ecocraft.core.registry.ECItems;
@@ -12,6 +13,10 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.potion.Potion;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 /**
  * Created by NevEagleson on 4/02/2015.
@@ -31,7 +36,35 @@ public class EcoCraftMod
         Config.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new Config());
 
+        //Increase Potion array size
+        Potion[] potionTypes = null;
+        for (Field f : Potion.class.getDeclaredFields())
+        {
+            f.setAccessible(true);
+            try
+            {
+                if (f.getName().equals("potionTypes") || f.getName().equals("field_76425_a"))
+                {
+                    Field modfield = Field.class.getDeclaredField("modifiers");
+                    modfield.setAccessible(true);
+                    modfield.setInt(f, f.getModifiers() & ~Modifier.FINAL);
+                    potionTypes = (Potion[]) f.get(null);
+                    if(potionTypes.length < 256)
+                    {
+                        final Potion[] newPotionTypes = new Potion[256];
+                        System.arraycopy(potionTypes, 0, newPotionTypes, 0, potionTypes.length);
+                        f.set(null, newPotionTypes);
+                    }
+                }
+            } catch (Exception e)
+            {
+                System.err.println("Severe error, please report this to the mod author:");
+                System.err.println(e);
+            }
+        }
+
         ECFluids.preinit();
+        ECPotions.preInit();
         ECBlocks.preInit();
         ECItems.preInit();
 
@@ -43,6 +76,7 @@ public class EcoCraftMod
     public void init(FMLInitializationEvent event)
     {
         ECFluids.init();
+        ECPotions.init();
         ECBlocks.init();
         ECItems.init();
 
@@ -54,6 +88,7 @@ public class EcoCraftMod
     public void postInit(FMLPostInitializationEvent event)
     {
         ECFluids.postInit();
+        ECPotions.postInit();
         ECBlocks.postInit();
         ECItems.postInit();
 

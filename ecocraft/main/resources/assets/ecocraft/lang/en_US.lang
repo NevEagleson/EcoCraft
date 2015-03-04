@@ -1,4 +1,4 @@
-itemgroup.ecocraft=Eco Craft
+itemGroup.ecocraft=Eco Craft
 
 fluid.ecocraft.blueEco.name=Blue Eco
 fluid.ecocraft.greenEco.name=Green Eco
@@ -20,3 +20,10 @@ tile.ecocraft.fluid.yellowEco.name=Yellow Eco
 tile.ecocraft.fluid.redEco.name=Red Eco
 tile.ecocraft.fluid.darkEco.name=Dark Eco
 tile.ecocraft.fluid.lightEco.name=Light Eco
+
+potion.ecocraft.blueEco.name=Blue Eco
+potion.ecocraft.greenEco.name=Green Eco
+potion.ecocraft.yellowEco.name=Yellow Eco
+potion.ecocraft.redEco.name=Red Eco
+potion.ecocraft.darkEco.name=Dark Eco
+potion.ecocraft.lightEco.name=Light Eco

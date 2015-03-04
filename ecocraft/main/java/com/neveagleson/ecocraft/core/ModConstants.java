@@ -13,4 +13,6 @@ public class ModConstants {
 
     public static final String NAME_PREFIX = MOD_NAME.toLowerCase() + ".";
     public static final String RESOURCE_PREFIX = MOD_NAME.toLowerCase() + ":";
+
+    public static final int TICKS_PER_SEC = 20;
 }
